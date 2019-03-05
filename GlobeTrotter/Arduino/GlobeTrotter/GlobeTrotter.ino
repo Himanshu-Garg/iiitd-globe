@@ -1,7 +1,6 @@
 #include <Keyboard.h>
 
 
-
 /* Globe Trotter
  * A tangible and interactive picture viewer
  * an original idea by Caroline Buttet
@@ -38,8 +37,8 @@ Encoder myEnc(2, 3);
 ///
 
 //setting the capacitive sensors (1 sensor per country)
-CapacitiveSensor   cs_4_5 = CapacitiveSensor(4,5);    //Madagascar      // 10M resistor between pins 4 & 5, pin 6 is sensor pin, add a wire and a pin to your desired country on your globe. 
-CapacitiveSensor   cs_4_6 = CapacitiveSensor(4,6);    //Namibia         // 10M resistor between pins 4 & 6, pin 7 is sensor pin, add a wire and a pin to your desired country on your globe. 
+//CapacitiveSensor   cs_4_5 = CapacitiveSensor(4,5);    //Madagascar      // 10M resistor between pins 4 & 5, pin 6 is sensor pin, add a wire and a pin to your desired country on your globe. 
+//CapacitiveSensor   cs_4_6 = CapacitiveSensor(4,6);    //Namibia         // 10M resistor between pins 4 & 6, pin 7 is sensor pin, add a wire and a pin to your desired country on your globe. 
 CapacitiveSensor   cs_4_7 = CapacitiveSensor(4,7);    //France          // 10M resistor between pins 4 & 7, pin 8 is sensor pin, add a wire and a pin to your desired country on your globe. 
 CapacitiveSensor   cs_4_8 = CapacitiveSensor(4,8);    //Ethiopia        // 10M resistor between pins 4 & 8, pin 8 is sensor pin, add a wire and a pin to your desired country on your globe. 
 CapacitiveSensor   cs_4_9 = CapacitiveSensor(4,9);    //China           // 10M resistor between pins 4 & 9, pin 9 is sensor pin, add a wire and a pin to your desired country on your globe. 
@@ -88,8 +87,8 @@ void updateEncoder(){
 
 void updateCapacitiveSensors(){
     long total1 =  cs_4_8.capacitiveSensor(30);   //Ethiopia
-    long total2 =  cs_4_5.capacitiveSensor(30);   //Madagascar
-    long total3 =  cs_4_6.capacitiveSensor(30);   //Namibia
+    //long total2 =  cs_4_5.capacitiveSensor(30);   //Madagascar
+    //long total3 =  cs_4_6.capacitiveSensor(30);   //Namibia
     long total4 =  cs_4_7.capacitiveSensor(30);   //France
     
     long total5 =  cs_4_9.capacitiveSensor(30);   //China
@@ -100,10 +99,10 @@ void updateCapacitiveSensors(){
     Serial.print("\t");                    // tab character for debug windown spacing
     Serial.print(total1);                  // print sensor output 1
     Serial.print("\t");
-    Serial.print(total2);                  // print sensor output 2
-    Serial.print("\t");
-    Serial.print(total3);                  // print sensor output 3
-    Serial.print("\t");
+    //Serial.print(total2);                  // print sensor output 2
+    //Serial.print("\t");
+    //Serial.print(total3);                  // print sensor output 3
+    //Serial.print("\t");
     Serial.print(total4);                // print sensor output 4
     
     Serial.print("\t");
@@ -118,12 +117,12 @@ void updateCapacitiveSensors(){
     if(total1>threshold){
       Keyboard.write('e');
     }
-    else if(total2>threshold){
-      Keyboard.write('m');
-    }
-    else if(total3>threshold){
-      Keyboard.write('n');
-    }
+    //else if(total2>threshold){
+      //Keyboard.write('m');
+    //}
+    //else if(total3>threshold){
+      //Keyboard.write('n');
+    //}
     else if(total4>threshold){
       Keyboard.write('f');
     }
